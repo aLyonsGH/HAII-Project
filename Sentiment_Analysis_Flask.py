@@ -98,7 +98,10 @@ class Gemini():
             return "Hate Speech Detected"
         else:
             response = self.model.generate_content(prompt)
-            return response.text
+            try:
+                return response.text
+            except: 
+                return "Response Blocked by Gemini"
 
 
 app = Flask(__name__, template_folder='template')
@@ -114,7 +117,7 @@ except:
 
 @app.route('/')
 def index():
-    return render_template('index_style_v3.html')
+    return render_template('index_style_v4.html')
 
 @app.route('/select_model', methods=['POST'])
 def select_model():
@@ -123,13 +126,13 @@ def select_model():
     gpt.select_filter_model(selected_model)
     return jsonify({'message': selected_model})
 
-@app.route('/print_text', methods=['POST'])
-def print_text():
+@app.route('/query_models', methods=['POST'])
+def query_models():
     global recent_request
     text = request.form['text']
     recent_request = text
     result = gpt.request_response(text)
-    return jsonify({'message': result})
+    return jsonify({'message': result, 'blocked' : result == "Response Blocked by Gemini" or result == "Hate Speech Detected"})
 
 @app.route('/report_issue', methods=['POST'])
 def report_issue():

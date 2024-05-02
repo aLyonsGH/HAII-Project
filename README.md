@@ -6,6 +6,7 @@ In order to prevent hateful content from being generated, large language models 
 
 Therefore, our goal is to create a prompt filtering algorithm that censors hateful content, while allowing more socially nuanced conversation of these controversial topics. The key idea behind our algorithm is that it is fine-tuned on socially-nuanced data. Namely, we used the [DIALOCONAN](https://github.com/marcoguerini/CONAN?tab=readme-ov-file#dialoconan) dataset, which simulates conversations between a hateful and neutral person talking about controversial topics. We fine-tuned many versions of two models, and picked the best versions by analyzing their performance on DIALOCONAN, a [twitter sentiment analysis dataset](https://www.kaggle.com/datasets/arkhoshghalb/twitter-sentiment-analysis-hatred-speech) and manual testing.
 
+We are expressing our algorithm in the form of a demo accessible via a web interface. After following the setup mentioned below, one can interact with our algorithm via a web page. Look at the linked video for further demonstrations and instructions. The purpose of format would be that a person who represents company that hosts a large language model would contact us after trying the demo, and then implement the algorithm into their actual product instead of using the web interface.
 
 ## Setup:
 1. Clone the repo

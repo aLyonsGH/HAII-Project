@@ -1,6 +1,6 @@
 # HAII-Project
 
-Setup:
+## Setup:
 1. Clone the repo
 ```bash
 git clone https://github.com/haotian-liu/LLaVA.git](https://github.com/aLyonsGH/HAII-Project.git

@@ -16,6 +16,7 @@ dependencies:
   - tk=8.6.12=h5d9f67b_0
   - xz=5.4.6=h6c40b1e_0
   - zlib=1.2.13=h4dc903c_0
+  - pip
   - pip:
     - accelerate==0.29.3
     - aiohttp==3.9.5

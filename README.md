@@ -36,7 +36,7 @@ Copy and paste the generated link into your favorite browser, and the webpage wi
 - Fine-Tuning: Scripts used for fine-tuning and evaluating the different models
 - Models: Where the models are stored after the setup mentioned above
 - template: Contains the style file for the web interface
-- Sentiment_Analysis_Flask: Runs the main program
+- Sentiment_Analysis_Flask.py: Runs the main program
 - environment.yml: File for setting up the anaconda environment
 
 ## Resources

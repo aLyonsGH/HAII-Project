@@ -23,7 +23,8 @@ Run the Sentiment_Analysis_Flask.py file via
 ```bash
 python Sentiment_Analysis_Flask.py
 ```
-In your console, a link will soon appear that looks like the following
+In your console, a link will soon appear that looks similar to the following
 ```text
 http://127.0.0.1:5000
 ```
+Copy and paste the generated link into your favorite browser, and the webpage will appear. To close the program, press Ctrl+c in the console.

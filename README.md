@@ -47,9 +47,9 @@ Copy and paste the generated link into your favorite browser, and the webpage wi
 
 ## Team Member Contributions
 
-Alex
-- Dataset finding
-- Model fine-tuning pipeline
-- Web interface creation
-Hugo
-- 
+- Alex
+  - Dataset finding
+  - Model fine-tuning pipeline
+  - Web interface creation
+- Hugo
+  - Todo

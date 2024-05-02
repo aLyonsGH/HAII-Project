@@ -84,9 +84,9 @@ class Gemini():
         self.model = genai.GenerativeModel('gemini-pro')
         self.filter_pipeline_models = {
             "dehatebert": dehatebert_hate_speech(),
-            "bertweet (Best)": bertweet_sentiment_analysis()
+            "bertweet": bertweet_sentiment_analysis()
         }
-        self.select_filter_model("bertweet (Best)")
+        self.select_filter_model("bertweet")
 
     def select_filter_model(self, filter_model):
         self.filter_pipeline = self.filter_pipeline_models[filter_model]

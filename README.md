@@ -35,7 +35,8 @@ In your console, a link will soon appear that looks similar to the following
 ```text
 http://127.0.0.1:5000
 ```
-Copy and paste the generated link into your favorite browser, and the webpage will appear. To close the program, press Ctrl+c in the console.
+Copy and paste the generated link into your favorite browser, and the webpage will appear. To close the program, press Ctrl+c in the console. 
+Note: If you are getting an error loading the webpage, try loading it in a new Incognito tab.
 
 ## Repo Files
 - Fine-Tuning: Scripts used for fine-tuning and evaluating the different models

@@ -18,21 +18,25 @@ class bertweet_sentiment_analysis:
         self.trainer = self.init_model()
 
     def init_model(self):
-        training_args = TrainingArguments(
-            output_dir="training_checkpoints",
-            evaluation_strategy="epoch",
-            per_device_train_batch_size=4
-        )
-
-        model = AutoModelForSequenceClassification.from_pretrained("fullData")
+        model = AutoModelForSequenceClassification.from_pretrained("Models/bertweet")
         trainer = Trainer(
-            model=model,
-            args=training_args,
+            model=model
         )
         return trainer
     
     def tokenize_function(self, input_text):
-        tokenizer = AutoTokenizer.from_pretrained("vinai/bertweet-large")
+        tokenizer = AutoTokenizer.from_pretrained(
+            cls_token= "<s>",
+            eos_token= "</s>",
+            mask_token= "<mask>",
+            model_max_length= 128,
+            pretrained_model_name_or_path= "vinai/bertweet-base",
+            normalization= False,
+            pad_token= "<pad>",
+            sep_token= "</s>",
+            tokenizer_class= "BertweetTokenizer",
+            unk_token= "<unk>"
+        )
         return tokenizer(input_text["text"], padding='max_length', truncation=True,max_length=120)
 
 
@@ -51,21 +55,16 @@ class dehatebert_hate_speech:
         self.trainer = self.init_model()
 
     def init_model(self):
-        training_args = TrainingArguments(
-            output_dir="training_checkpoints",
-            evaluation_strategy="epoch",
-            per_device_train_batch_size=4
-        )
 
-        model = AutoModelForSequenceClassification.from_pretrained("fullData_hateSpeech")
+        model = AutoModelForSequenceClassification.from_pretrained("Models/dehatebert")
         trainer = Trainer(
             model=model,
-            args=training_args,
         )
         return trainer
     
     def tokenize_function(self, input_text):
-        tokenizer = AutoTokenizer.from_pretrained("google-bert/bert-base-uncased")
+
+        tokenizer = AutoTokenizer.from_pretrained("google-bert/bert-base-uncased", do_lower_case= False, max_len= 512, unk_token= "[UNK]", sep_token= "[SEP]", pad_token= "[PAD]", cls_token= "[CLS]", mask_token= "[MASK]")
         return tokenizer(input_text["text"], padding='max_length', truncation=True,max_length=512)
 
 
@@ -85,9 +84,9 @@ class Gemini():
         self.model = genai.GenerativeModel('gemini-pro')
         self.filter_pipeline_models = {
             "dehatebert": dehatebert_hate_speech(),
-            "bertweet": bertweet_sentiment_analysis()
+            "bertweet (Best)": bertweet_sentiment_analysis()
         }
-        self.select_filter_model("dehatebert")
+        self.select_filter_model("bertweet (Best)")
 
     def select_filter_model(self, filter_model):
         self.filter_pipeline = self.filter_pipeline_models[filter_model]

@@ -18,3 +18,12 @@ conda activate HAII_Project
 ```bash
 gdown --folder https://drive.google.com/drive/folders/12NrNo4fvMrXIBqpJnQRUQIlr4rBTByRC
 ```
+## Running:
+Run the Sentiment_Analysis_Flask.py file via
+```bash
+python Sentiment_Analysis_Flask.py
+```
+In your console, a link will soon appear that looks like the following
+```text
+http://127.0.0.1:5000
+```

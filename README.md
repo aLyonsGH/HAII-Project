@@ -14,7 +14,7 @@ cd HAII-Project
 conda env create -f environment.yml
 conda activate HAII_Project
 ```
-4. Download the models by running the model script
+4. Download the models with the following line
 ```bash
 gdown --folder https://drive.google.com/drive/folders/12NrNo4fvMrXIBqpJnQRUQIlr4rBTByRC
 ```

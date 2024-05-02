@@ -125,13 +125,21 @@ def select_model():
     gpt.select_filter_model(selected_model)
     return jsonify({'message': selected_model})
 
+requesting = False
+
 @app.route('/query_models', methods=['POST'])
 def query_models():
+    global requesting
     global recent_request
-    text = request.form['text']
-    recent_request = text
-    result = gpt.request_response(text)
-    return jsonify({'message': result, 'blocked' : result == "Response Blocked by Gemini" or result == "Hate Speech Detected"})
+    if not requesting:
+        requesting = True
+        text = request.form['text']
+        recent_request = text
+        result = gpt.request_response(text)
+        requesting = False
+        return jsonify({'message': result, 'blocked' : result == "Response Blocked by Gemini" or result == "Hate Speech Detected"})
+    else:
+        return jsonify({'message': "Please Don't Spam Request, Still Loading", 'blocked' : True})
 
 @app.route('/report_issue', methods=['POST'])
 def report_issue():

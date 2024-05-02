@@ -1,4 +1,4 @@
-# HAII-Project
+# HAII-Project: Socially-Aware Prompt Filtering
 
 ## Setup:
 1. Clone the repo
